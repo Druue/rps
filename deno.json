@@ -9,6 +9,11 @@
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
+  "fmt": {
+    "exclude": [
+      "COPYING.md"
+    ]
+  },
   "lint": {
     "rules": {
       "tags": [
