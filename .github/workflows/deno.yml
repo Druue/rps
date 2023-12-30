@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: setup deno
-      - uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@v1
         with:
           deno-version: ${{ env.DENO_VERSION }}
 
