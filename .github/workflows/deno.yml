@@ -39,19 +39,19 @@ jobs:
 
     steps:
     - name: Setup repo
-        uses: actions/checkout@v4
+      uses: actions/checkout@v4
 
     - name: Cache Deno dependencies 
-        uses: actions/cache@v3
-        with:
-          path: ${{ env.DENO_DIR }}
-          key: ${{ hashFiles('deno.lock') }}
+      uses: actions/cache@v3
+      with:
+        path: ${{ env.DENO_DIR }}
+        key: ${{ hashFiles('deno.lock') }}
 
     - name: Verify formatting
-        run: deno fmt --check
+      run: deno fmt --check
 
-      - name: Run linter
-        run: deno lint
+    - name: Run linter
+      run: deno lint
 
   test:
     runs-on: ubuntu-latest
