@@ -15,12 +15,12 @@ on:
 permissions:
   contents: read
 
+# ? Set DENO_DIR to an absolute or relative path on the runner.
+env:
+  DENO_VERSION: v1.39.1
+  # DENO_DIR: my_cache_directory
+
 jobs:
-  # ? Set DENO_DIR to an absolute or relative path on the runner.
-  env:
-    DENO_VERSION: v1.39.1
-  #   DENO_DIR: my_cache_directory
-    
   check:
     runs-on: ubuntu-latest
     steps:
