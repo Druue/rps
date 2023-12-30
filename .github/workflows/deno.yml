@@ -23,37 +23,28 @@ env:
   # DENO_DIR: my_cache_directory
 
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: denoland/setup-deno@v1
-      with:
-        deno-version: ${{ env.DENO_VERSION }}
-
-    - uses: actions/cache@v3
-      with:
-        path: ${{ env.DENO_DIR }}
-        key: ${{ hashFiles('deno.lock') }}
-
-    - name: Verify formatting
-      run: deno fmt --check
-
-    - name: Run linter
-      run: deno lint
-
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: checkout repo
+        uses: actions/checkout@v4
+
+      - name: setup deno
       - uses: denoland/setup-deno@v1
         with:
           deno-version: ${{ env.DENO_VERSION }}
 
+      - name: cache deps
       - uses: actions/cache@v3
         with:
           path: ${{ env.DENO_DIR }}
           key: ${{ hashFiles('deno.lock') }}
+
+      - name: Verify formatting
+        run: deno fmt --check
+
+      - name: Run linter
+        run: deno lint
 
       - name: Run tests
         run: deno test -A
