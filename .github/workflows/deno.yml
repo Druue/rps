@@ -24,7 +24,20 @@ env:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macOS-latest, windows-latest, ubuntu-latest]
+        include:
+        - os: ubuntu-latest
+          cache_path: ~/.cache/deno/
+        - os: macos-latest
+          cache_path: ~/Library/Caches/deno/
+        - os: windows-latest
+          cache_path: ~\AppData\Local\deno\
+
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
@@ -37,7 +50,7 @@ jobs:
       - name: cache deps
         uses: actions/cache@v3
         with:
-          path: ${{ env.DENO_DIR }}
+          path: ${{ matrix.cache_path }}
           key: ${{ hashFiles('deno.lock') }}
 
       - name: Verify formatting
