@@ -1,5 +1,5 @@
 {
-  "lock": false,
+  "lock": true,
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
@@ -8,6 +8,11 @@
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
+  },
+  "fmt": {
+    "exclude": [
+      "COPYING.md"
+    ]
   },
   "lint": {
     "rules": {
@@ -36,6 +41,11 @@
         "single-var-declarator"
       ]
     }
+  },
+  "test": {
+    "include": [
+      "tests/*"
+    ]
   },
   "exclude": [
     "**/_fresh/*"
