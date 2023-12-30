@@ -42,6 +42,11 @@
       ]
     }
   },
+  "test": {
+    "include": [
+      "tests/*"
+    ]
+  },
   "exclude": [
     "**/_fresh/*"
   ],
