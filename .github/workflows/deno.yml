@@ -9,32 +9,62 @@
 name: Deno
 
 on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+  push
+  pull_request
 
 permissions:
   contents: read
 
 jobs:
+  # ? Set DENO_DIR to an absolute or relative path on the runner.
+  # env:
+  #   DENO_DIR: my_cache_directory
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.39.1
+
+      - name: Cache Deno dependencies 
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.DENO_DIR }}
+          key: ${{ secrets.CACHE_VERSION }}-${{ hashFiles('deno.lock') }}
+    
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Setup repo
+        uses: actions/checkout@v4
+
+    - name: Cache Deno dependencies 
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.DENO_DIR }}
+          key: ${{ hashFiles('deno.lock') }}
+
+    - name: Verify formatting
+        run: deno fmt --check
+
+      - name: Run linter
+        run: deno lint
+
   test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Setup repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Setup Deno
-        uses: denoland/setup-deno@v1
+      - name: Cache Deno dependencies 
+        uses: actions/cache@v3
         with:
-          deno-version: v1.39.1
-
-      - name: Verify formatting
-        run: deno fmt --check
-
-      - name: Run linter
-        run: deno lint
+          path: ${{ env.DENO_DIR }}
+          key: ${{ hashFiles('deno.lock') }}
 
       - name: Run tests
         run: deno test -A
