@@ -1,8 +1,22 @@
 import { useSignal } from "@preact/signals";
+import { Handlers, PageProps } from "$fresh/server.ts";
 import { JSX } from "preact/jsx-runtime";
 
-export default function Home(): JSX.Element {
+import { getRecipes, Recipe } from "../api/recipes.ts";
+
+export const handler: Handlers<Recipe[] | null> = {
+  async GET(_req, ctx): Promise<Response> {
+    const recipes = await getRecipes();
+
+    const resp = await ctx.render(recipes);
+    return resp;
+  },
+};
+
+export default function Home(props: PageProps<Recipe[]>): JSX.Element {
   const count = useSignal(3);
+  // TODO(#2)
+  const recipes = props.data;
   return (
     <div class="px-4 py-8 mx-auto bg-[#86efac]">
       <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">

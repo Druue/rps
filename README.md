@@ -9,21 +9,25 @@
 </div>
 
 ## Getting Started
+
 Make sure to
+
 1. [install Deno](https://deno.land/manual/getting_started/installation)
 2. Cache Dependencies
-    ```
-    deno task cache
-    ```
+   ```
+   deno task cache
+   ```
 3. Start the project (this serves to `http://localhost:8000/`)
-    ```
-    deno task start
-    ```
+   ```
+   deno task start
+   ```
 
 This will watch the project directory and restart as necessary.
 
-For further contributing and understanding, you can also follow the [Fresh "Getting Started" guide](https://fresh.deno.dev/docs/getting-started)
+For further contributing and understanding, you can also follow the
+[Fresh "Getting Started" guide](https://fresh.deno.dev/docs/getting-started)
 
 ## Extensions
-If using VSCode, there are some recommended extensions [here](https://github.com/Druue/rps/blob/main/.vscode/extensions.json)
 
+If using VSCode, there are some recommended extensions
+[here](https://github.com/Druue/rps/blob/main/.vscode/extensions.json)
