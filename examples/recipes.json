@@ -1,0 +1,70 @@
+{
+  "0": {
+    "name": "Tiramisu",
+    "author": "Druue",
+    "blurb": "This is my family tiramisu recipe",
+    "ingredients": [
+      {
+        "name": "Coffee",
+        "measurement": {
+          "amount": 40,
+          "unit": "ml"
+        }
+      },
+      {
+        "name": "Egg Yolks",
+        "measurement": {
+          "amount": 4
+        }
+      },
+      {
+        "name": "Amaretto",
+        "measurement": {
+          "amount": 10,
+          "unit": "ml"
+        }
+      }
+    ],
+    "method": [
+      { "1": "Brew coffee" },
+      { "2": "Beat egg yolks" }
+    ],
+    "time": 30000,
+    "difficulty": "easy",
+    "tags": [
+      "vegetarian",
+      "alcoholic",
+      "caffeinated"
+    ]
+  },
+  "1": {
+    "name": "Banana Bread",
+    "author": "Druue",
+    "blurb": "This is my family banana bread recipe",
+    "ingredients": [
+      {
+        "name": "Banana",
+        "measurement": {
+          "amount": 4
+        }
+      },
+      {
+        "name": "Coconut Oil",
+        "measurement": {
+          "amount": 2,
+          "unit": "tsp"
+        }
+      }
+    ],
+    "method": [
+      { "1": "Mash bananas" },
+      { "2": "Add coconut oil" }
+    ],
+    "time": 6000,
+    "difficulty": "easy",
+    "tags": [
+      "vegan",
+      "vegetarian"
+    ]
+  }
+}
