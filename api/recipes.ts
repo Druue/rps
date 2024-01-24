@@ -1,4 +1,4 @@
-import Recipes from "../examples/recipes.json" with { type: "json" };
+import Recipes from "#examples/recipes.json" with { type: "json" };
 
 export type Recipe = {
   name: string;

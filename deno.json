@@ -52,6 +52,7 @@
     "**/_fresh/*"
   ],
   "imports": {
+    "$std/": "https://deno.land/std@0.208.0/",
     "$fresh/": "https://deno.land/x/fresh@1.6.1/",
     "preact": "https://esm.sh/preact@10.19.2",
     "preact/": "https://esm.sh/preact@10.19.2/",
@@ -60,7 +61,10 @@
     "tailwindcss": "npm:tailwindcss@3.3.5",
     "tailwindcss/": "npm:/tailwindcss@3.3.5/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.3.5/plugin.js",
-    "$std/": "https://deno.land/std@0.208.0/"
+    "#api/": "./api/",
+    "#components/": "./components/",
+    "#examples/": "./examples/",
+    "#islands/": "./islands/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
