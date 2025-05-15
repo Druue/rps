@@ -22,4 +22,4 @@ jobs:
                 - type: "section"
                   text:
                     type: "mrkdwn"
-                    text: "${{ github.event.pusher.name }} just pushed"
+                    text: "${{ github.event.pusher.name }} just pushed to ${{ github.event.repository.branches_url }}"
