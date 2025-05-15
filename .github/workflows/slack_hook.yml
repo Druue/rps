@@ -22,4 +22,4 @@ jobs:
                 - type: "section"
                   text:
                     type: "mrkdwn"
-                    text: "${{ toJson(github.event_name) }} just occurred"
+                    text: "${{ github.event_name }} just occurred"
